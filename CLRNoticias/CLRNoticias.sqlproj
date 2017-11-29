@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{41f7661a-bf56-47f5-ba8c-c4252edcba1d}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -23,6 +23,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <ValidateCasingOnIdentifiers>True</ValidateCasingOnIdentifiers>
+    <PermissionSet>UNSAFE</PermissionSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -46,6 +48,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -57,5 +60,15 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bibliotecas\Bibliotecas.csproj">
+      <Name>Bibliotecas</Name>
+      <Project>{29d2e1d9-aa35-490a-9d77-fc78e3e51605}</Project>
+      <Private>True</Private>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+      <SqlPermissionSet>UNSAFE</SqlPermissionSet>
+    </ProjectReference>
   </ItemGroup>
 </Project>
